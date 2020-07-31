@@ -46,7 +46,7 @@ RUN echo $PATH
 
 # Update Labels
 LABEL maintainer=dmedeiros@veracode.com \
-      base.name="Veracode SAST" \
+      base.name="Veracode WrapperAPI" \
       base.version="${VERSION}"
 
 # Set working directory
