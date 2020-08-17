@@ -1,7 +1,9 @@
 # Veracode-WrapperAPI
 
 ![GitHub](https://img.shields.io/github/license/dennismedeiros/veracode-wrapperapi-container?style=plastic)
+
 https://img.shields.io/docker/cloud/build/dennismedeiros/veracode-wrapperapi
+
 ![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/dennismedeiros/veracode-wrapperapi/latest)
 
 https://img.shields.io/docker/image-size/dennismedeiros/veracode-wrapperapi
