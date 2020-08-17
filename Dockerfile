@@ -26,13 +26,18 @@ ARG VERSION="unknown"
 
 ENV APPROOT="/app" \
 	APP="VeracodeJavaAPI.jar" \
-    VERACODE_ID="" \
-    VERACODE_KEY="" 
+    VERACODE_ANALYSISCENTER_ID="" \
+    VERACODE_ANALYSISCENTER_KEY="" 
 
-RUN echo ${APPROOT}
+# Create application directory
+RUN mkdir ${APPROOT}
 
-RUN mkdir -p ${APPROOT}
-RUN ls -la .
+# Add AppRoot to the system search path
+ENV PATH=$PATH:${APPROOT}
+RUN echo $PATH
+
+# Copy docker entrypoint script to container
+COPY ./docker-entrypoint.sh /usr/local/bin/
 
 # Copy contents from retriever directory to application directory
 COPY --from=retriever /home/curl_user ${APPROOT}
@@ -40,17 +45,10 @@ COPY --from=retriever /home/curl_user ${APPROOT}
 # Verify content has been moved to APPROOT
 RUN ls -la ${APPROOT}
 
-# Add AppRoot to the system search path
-ENV PATH=$PATH:${APPROOT}
-RUN echo $PATH
-
 # Update Labels
 LABEL maintainer=dmedeiros@veracode.com \
       base.name="Veracode WrapperAPI" \
       base.version="${VERSION}"
-
-# Set working directory
-WORKDIR ${APPROOT}
 
 # change owner and permission on application wrapper
 RUN chown root ${APPROOT}/${APP}
@@ -65,5 +63,5 @@ RUN ls -la .
 RUN java -version
 RUN java -jar ${APPROOT}/${APP} -wrapperversion
 
-ENTRYPOINT ["/bin/sh", "-c"] 
-CMD ["java","version"]
+ENTRYPOINT ["docker-entrypoint.sh"] 
+CMD ["WrapperAPI", "-help"]
