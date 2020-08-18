@@ -37,7 +37,7 @@ ENV PATH=$PATH:${APPROOT}
 RUN echo $PATH
 
 # Copy docker entrypoint script to container
-COPY ./docker-entrypoint.sh /usr/local/bin/
+COPY ./docker-entrypoint.sh /
 
 # Copy contents from retriever directory to application directory
 COPY --from=retriever /home/curl_user ${APPROOT}
@@ -63,5 +63,5 @@ RUN ls -la .
 RUN java -version
 RUN java -jar ${APPROOT}/${APP} -wrapperversion
 
-ENTRYPOINT ["docker-entrypoint.sh"] 
+ENTRYPOINT ["/docker-entrypoint.sh"] 
 CMD ["WrapperAPI", "-help"]
