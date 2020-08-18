@@ -63,5 +63,5 @@ RUN ls -la .
 RUN java -version
 RUN java -jar ${APPROOT}/${APP} -wrapperversion
 
-ENTRYPOINT ["/docker-entrypoint.sh"] 
-CMD ["WrapperAPI", "-help"]
+ENTRYPOINT ["/bin/sh","-c"] 
+CMD [""]
