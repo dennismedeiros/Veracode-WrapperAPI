@@ -17,9 +17,9 @@ This container image contains a version of the Veracode Java Wrapper API. Config
 
 ## Docker Examples
 ### Example of retrieving VeracodeJavaAPI version
-> `docker run --rm dennismedeiros/veracode-wrapperapi:alpha /app/VeracodeJavaAPI.jar -wrapperversion`
+> `docker run --rm dennismedeiros/veracode-wrapperapi:latest /app/VeracodeJavaAPI.jar -wrapperversion`
 
 ### Example of retrieving the application list
-> `docker run --rm dennismedeiros/veracode-wrapperapi:alpha /app/VeracodeJavaAPI.jar -vid <id_value> -vkey <key_value> -action GetAppList`
+> `docker run --rm dennismedeiros/veracode-wrapperapi:latest /app/VeracodeJavaAPI.jar -vid <id_value> -vkey <key_value> -action GetAppList`
 
 ## GitLab Examples:
