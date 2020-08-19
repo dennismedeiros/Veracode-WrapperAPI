@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --build-arg VERACODE_WRAPPER_VERSION="20.7.7.0" --build-arg VERSION="1.0.0-alpha" --tag dennismedeiros/veracode-wrapperapi:1.0.0-alpha
+      run: docker build . --file Dockerfile --build-arg VERACODE_WRAPPER_VERSION="20.7.7.0" --build-arg VERSION="1.0.0-alpha" --tag dennismedeiros/veracode-wrapperapi:1.0.0-alpha --no-cache
