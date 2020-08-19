@@ -63,5 +63,5 @@ RUN ls -la .
 RUN java -version
 RUN java -jar ${APPROOT}/${APP} -wrapperversion
 
-ENTRYPOINT ["/bin/sh","-c"] 
+ENTRYPOINT ["java","-jar"] 
 CMD [""]
