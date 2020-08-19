@@ -10,3 +10,5 @@ if [ "$1" = 'WrapperAPI' ]; then
 		-vkey $VERACODE_ANALYSISCENTER_KEY \
 		"$@" 
 fi
+
+exec "$@" 
