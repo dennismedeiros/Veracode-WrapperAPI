@@ -13,13 +13,18 @@
 
 
 ## Description: 
-This container image contains a version of the Veracode Java Wrapper API. Configured to perform the actions available to the Veracode Wrapper API. All the actions available to the Veracode Java Wrapper can be perform by calling /app/VeracodeJavaAPI.jar and passing in the arguments as requied for the action. 
+This container image contains a version of the Veracode Java Wrapper API. Configured to perform the actions available to the Veracode Wrapper API in a secure way. All the actions available to the Veracode Java Wrapper can be perform by calling **WrapperAPI** and passing in the arguments as requied for the action. **WrapperAPI** is aliasing for java -jar /app/VeracodeJavaAPI.jar command call.
+
+The containter also now has environmental variable for **VERACODE_ANALYSISCENTER_ID** and **VERACODE_ANALYSISCENTER_KEY** to be passed instead of as arguments throug the command line.
 
 ## Docker Examples
 ### Example of retrieving VeracodeJavaAPI version
-> `docker run --rm dennismedeiros/veracode-wrapperapi:latest /app/VeracodeJavaAPI.jar -wrapperversion`
+> `docker run --rm dennismedeiros/veracode-wrapperapi:latest WrapperAPI -wrapperversion`
 
 ### Example of retrieving the application list
-> `docker run --rm dennismedeiros/veracode-wrapperapi:latest /app/VeracodeJavaAPI.jar -vid <id_value> -vkey <key_value> -action GetAppList`
+> `docker run --rm dennismedeiros/veracode-wrapperapi:latest WrapperAPI -vid <id_value> -vkey <key_value> -action GetAppList`
+
+### Example of retrieving the application list while passing environmental variables
+> `docker run --rm -e VERACODE_ANALYSISCENTER_ID=<veracode_id> -e VERACODE_ANALYSISCENTER_KEY=<veracode_key> dennismedeiros/veracode-wrapperapi:latest WrapperAPI -action GetAppList`
 
 ## GitLab Examples:
