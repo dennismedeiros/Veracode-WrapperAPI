@@ -37,7 +37,7 @@ ENV PATH=$PATH:${APPROOT}
 #RUN echo $PATH
 
 # Copy docker entrypoint script to container
-COPY ./docker-entrypoint.sh /
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
 # Copy contents from retriever directory to application directory
 COPY --from=retriever /home/curl_user ${APPROOT}
