@@ -38,6 +38,7 @@ RUN echo $PATH
 
 # Copy docker entrypoint script to container
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod 555 /docker-entrypoint.sh
 
 # Verify copying of docker-entrypoint.sh
 RUN ls -la /
