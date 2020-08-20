@@ -34,10 +34,13 @@ RUN mkdir ${APPROOT}
 
 # Add AppRoot to the system search path
 ENV PATH=$PATH:${APPROOT}
-#RUN echo $PATH
+RUN echo $PATH
 
 # Copy docker entrypoint script to container
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+
+# Verify copying of docker-entrypoint.sh
+RUN ls -la /
 
 # Copy contents from retriever directory to application directory
 COPY --from=retriever /home/curl_user ${APPROOT}
@@ -56,12 +59,12 @@ RUN chgrp root ${APPROOT}/${APP}
 RUN chmod 555 ${APPROOT}/${APP}
 
 # Verify configuration
-#RUN pwd
-#RUN ls -la .
+RUN pwd
+RUN ls -la .
 
 # Verify Java and App Wrapper work
-#RUN java -version
-#RUN java -jar ${APPROOT}/${APP} -wrapperversion
+RUN java -version
+RUN java -jar ${APPROOT}/${APP} -wrapperversion
 
 ENTRYPOINT ["/docker-entrypoint.sh"] 
 CMD [""]
