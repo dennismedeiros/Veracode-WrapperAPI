@@ -21,9 +21,6 @@ The containter also now has environmental variable for **VERACODE_ANALYSISCENTER
 ### Example of retrieving VeracodeJavaAPI version
 > `docker run --rm dennismedeiros/veracode-wrapperapi:latest WrapperAPI -wrapperversion`
 
-### Example of retrieving the application list
-> `docker run --rm dennismedeiros/veracode-wrapperapi:latest WrapperAPI -vid <id_value> -vkey <key_value> -action GetAppList`
-
 ### Example of retrieving the application list while passing environmental variables
 > `docker run --rm -e VERACODE_ANALYSISCENTER_ID=<veracode_id> -e VERACODE_ANALYSISCENTER_KEY=<veracode_key> dennismedeiros/veracode-wrapperapi:latest WrapperAPI -action GetAppList`
 
